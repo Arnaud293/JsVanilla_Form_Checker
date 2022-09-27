@@ -15,7 +15,13 @@ const errorDisplay = (tag, message, valid) => {
 
 const pseudoChecker= (value) => {
    if(value.length > 0 && (value.length< 3 || value.length >20)){
-        errorDisplay("pseudo", "Le pseudo doit contenir entre 3 et 20 caractères")
+        errorDisplay("pseudo", "Le pseudo doit contenir entre 3 et 20 caractères");
+   }
+   else if(!value.match(/^[a-zA-A0-9_.-]*$/)){
+    errorDisplay('pseudo', 'Le pseudo ne doit pas contenir de caractères spéciaux');
+   }
+   else{
+    errorDisplay('pseudo', '', true);
    }
 }
 
