@@ -1,5 +1,7 @@
 const inputs = document.querySelectorAll('input[type="text"], input[type="password"]');
 
+const progressBar = document.getElementById('progress-bar');
+
 let pseudo, email, password, confirmPass;
 
 const errorDisplay = (tag, message, valid) => {
@@ -31,7 +33,14 @@ const pseudoChecker= (value) => {
 }
 
 const emailChecker= (value) => {
-    
+    if(!value.match(/^[\w_-]+@[\w-]+\.[a-z]{2-4}$/i)){
+        errorDisplay('email', 'Adresse mail invalide');
+        email = null;
+    }
+    else {
+        errorDisplay('email', '', true);
+        email = value;
+    }
 }
 
 const passwordChecker= (value) => {
