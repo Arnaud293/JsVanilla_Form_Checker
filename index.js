@@ -44,6 +44,9 @@ const emailChecker= (value) => {
 }
 
 const passwordChecker= (value) => {
+
+    progressBar.classList = "";
+
     if(!value.match(/^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{8,}$/)){
         errorDisplay('password', "Doit contenir 8 caractères, une majuscule, un chiffre et un caractère spécial")
         password = null;
@@ -57,10 +60,17 @@ const passwordChecker= (value) => {
         errorDisplay('password', '', true);
         password = value;
     }
+    if(confirmPass) confirmChecker(confirmPass);
 }
 
 const confirmChecker= (value) => {
-    
+    if(value !== password){
+        errorDisplay('confirm', 'Les mots de passe ne correspondent pas');
+        confirmPass = false;
+    } else {
+        errorDisplay('confirm', '', true);
+        confirmPass = true;
+    }
 }
 
 inputs.forEach((input) => {
