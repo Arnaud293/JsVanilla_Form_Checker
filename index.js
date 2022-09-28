@@ -33,7 +33,7 @@ const pseudoChecker= (value) => {
 }
 
 const emailChecker= (value) => {
-    if(!value.match(/^[\w_-]+@[\w-]+\.[a-z]{2-4}$/i)){
+    if(!value.match(/^[\w_-]+@[\w-]+\.[a-z]{2,4}$/i)){
         errorDisplay('email', 'Adresse mail invalide');
         email = null;
     }
@@ -44,7 +44,9 @@ const emailChecker= (value) => {
 }
 
 const passwordChecker= (value) => {
-    
+    if(!value.match(/^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{8,}$/)){
+        
+    }
 }
 
 const confirmChecker= (value) => {
