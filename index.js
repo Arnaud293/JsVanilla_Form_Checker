@@ -45,7 +45,17 @@ const emailChecker= (value) => {
 
 const passwordChecker= (value) => {
     if(!value.match(/^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{8,}$/)){
-        
+        errorDisplay('password', "Doit contenir 8 caractères, une majuscule, un chiffre et un caractère spécial")
+        password = null;
+        progressBar.classList.add('progressRed')
+    } else if( value.length<12){
+        progressBar.classList.add('progressBlue');
+        errorDisplay('password', '', true);
+        password = value;
+    } else {
+        progressBar.classList.add('progressGreen');
+        errorDisplay('password', '', true);
+        password = value;
     }
 }
 
