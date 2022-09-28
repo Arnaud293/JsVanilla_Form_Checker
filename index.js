@@ -111,6 +111,7 @@ form.addEventListener('submit', (e) => {
 
         // Clear inputs
         inputs.forEach((input) => (input.value = ""));
+        progressBar.classList = "";
 
         // Clear variables
         pseudo = null;
