@@ -1,3 +1,5 @@
+const form = document.querySelector('form');
+
 const inputs = document.querySelectorAll('input[type="text"], input[type="password"]');
 
 const progressBar = document.getElementById('progress-bar');
@@ -92,4 +94,20 @@ inputs.forEach((input) => {
             return null;    
         }
     })
+})
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    if (pseudo && email && password && confirmPass){
+        const data = {
+            pseudo,
+            email,
+            password,
+        }
+        console.log(data);
+    }
+    else{
+        alert('Veuillez remplir correctement les champs')
+    }
 })
